@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Simulation
 {
-    public class viewManager : MonoBehaviour
+    public class CameraController : MonoBehaviour
     {
         // Start is called before the first frame update
         [SerializeField]
@@ -16,16 +16,19 @@ namespace Simulation
         public float speed;
         public OrbitViewManager.CameraType type;
 
+
         OrbitViewManager viewManager;
 
         void Start()
         {
             viewManager = GameObject.Find("OrbitViewManager").GetComponent<OrbitViewManager>();
+
         }
 
         // Update is called once per frame
         void Update()
         {
+
             if (viewManager.Controlling() == type)
             {
                 Vector3 worldX = transform.TransformDirection(Vector3.right);
@@ -34,8 +37,11 @@ namespace Simulation
                 transform.RotateAround(focus.position, worldX, Input.GetAxis("Vertical") * speed * Time.deltaTime);
                 transform.LookAt(focus);
             }
-
         }
+
+
+
+
     }
 
 }

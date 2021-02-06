@@ -374,6 +374,9 @@ MonoBehaviour:
   screenshotKey: 111
   captureWidth: 2
   captureHeight: 2
+  autoCapture: 1
+  triggerOrbitCaptureKey: 127
+  divisions: 15
 --- !u!1 &664698437
 GameObject:
   m_ObjectHideFlags: 0
