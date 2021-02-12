@@ -1,16 +1,11 @@
 using UnityEngine;
 using System.IO;
 
-/***
-Responsible for the capture, saving, and display of images taken by the capture camera.
-*/
-
 namespace Simulation
 {
     public class CameraCaptureController : MonoBehaviour
     {
         public int fileCounter;
-        public string sessionName;
         public KeyCode screenshotKey;
 
         public int captureWidth;
@@ -23,7 +18,6 @@ namespace Simulation
         public bool autoCapture;
         public KeyCode triggerOrbitCaptureKey;
         public int divisions;
-        public string lightFieldName;
         bool currentlyCapturing;
         OrbitViewManager viewManager;
 
@@ -38,16 +32,10 @@ namespace Simulation
         {
             if (autoCapture)
             {
-                if (Input.GetKeyDown(screenshotKey))
-                {
-                    Debug.Log("Autocapture on, not capturing image.");
-                }
                 if (!currentlyCapturing && Input.GetKeyDown(triggerOrbitCaptureKey))
                 {
                     Debug.Log("Starting orbit capture");
-                    collectionManager.captureViews.Clear();
                     StartOrbitingCapture();
-                    collectionManager.SaveSession(sessionName);
                 }
             }
             else
@@ -80,22 +68,22 @@ namespace Simulation
 
             Transform cameraTransform = _camera.gameObject.transform;
 
-            int fileCount = fileCounter;
-            fileCounter++;
+
 
             // add to list of captures 
-            collectionManager.captureViews.Add(new CaptureViewCollection.CaptureView("img_" + fileCount + ".png", image, _camera.projectionMatrix * _camera.worldToCameraMatrix, cameraTransform.position));
+            collectionManager.captureViews.Add(new CaptureViewCollection.CaptureView(image, _camera.projectionMatrix * _camera.worldToCameraMatrix, cameraTransform.position, cameraTransform.position));
 
             if (renderCapture)
             {
 
-                createCapturePoseLabel(cameraTransform, image, fileCount);
+                createCapturePoseLabel(cameraTransform, image);
             }
         }
 
-        public void createCapturePoseLabel(Transform trans, Texture2D tex, int fileCount)
+        public void createCapturePoseLabel(Transform trans, Texture2D tex)
         {
-            CaptureCreator.CreateCaptureGameObject(trans, tex, captureWidth, captureHeight, "capture-" + fileCount);
+            CaptureCreator.CreateCaptureGameObject(trans, tex, captureWidth, captureHeight, "capture-" + fileCounter);
+            fileCounter++;
         }
 
 

@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/**
-Responsible for the basic motion controls of a Camera 
-*/
 
 namespace Simulation
 {
     public class CameraController : MonoBehaviour
     {
+        // Start is called before the first frame update
+        [SerializeField]
+        public Transform focus;
 
-        private Transform focus;
-
+        [SerializeField, Range(1f, 20f)]
+        float distance = 5f;
         public float speed;
         public OrbitViewManager.CameraType type;
 
@@ -22,11 +22,7 @@ namespace Simulation
         void Start()
         {
             viewManager = GameObject.Find("OrbitViewManager").GetComponent<OrbitViewManager>();
-            focus = viewManager.focalPoint.transform;
 
-            //move to appropriate distance 
-            transform.position = new Vector3(focus.position.x + viewManager.distance, focus.position.y, focus.position.z);
-            transform.LookAt(focus);
         }
 
         // Update is called once per frame
