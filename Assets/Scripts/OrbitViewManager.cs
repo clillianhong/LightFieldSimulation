@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/**
-Responsible for the projector plane setup 
-*/
 
 namespace Simulation
 {
@@ -22,9 +19,6 @@ namespace Simulation
         public Camera viewCamera;
         public Camera captureCamera;
         public Transform focalPoint;
-
-        [SerializeField, Range(1f, 20f)]
-        public float distance = 5f;
         public GameObject projectorPlane;
 
         private GameObject _manager;

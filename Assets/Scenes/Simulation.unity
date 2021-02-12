@@ -252,6 +252,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d113ce88fdb5f9b4e91573dcdd430c45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  focus: {fileID: 664698441}
+  distance: 10
   speed: 20
   type: 0
 --- !u!1 &464764465
@@ -352,6 +354,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d113ce88fdb5f9b4e91573dcdd430c45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  focus: {fileID: 664698441}
+  distance: 10
   speed: 20
   type: 1
 --- !u!114 &464764470
@@ -370,10 +374,9 @@ MonoBehaviour:
   screenshotKey: 111
   captureWidth: 2
   captureHeight: 2
-  autoCapture: 0
+  autoCapture: 1
   triggerOrbitCaptureKey: 127
   divisions: 15
-  lightFieldName: 
 --- !u!1 &664698437
 GameObject:
   m_ObjectHideFlags: 0
@@ -1106,7 +1109,6 @@ MonoBehaviour:
   viewCamera: {fileID: 71556517}
   captureCamera: {fileID: 464764467}
   focalPoint: {fileID: 664698441}
-  distance: 20
   projectorPlane: {fileID: 1262285514}
 --- !u!114 &2077698563
 MonoBehaviour:
