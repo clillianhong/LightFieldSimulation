@@ -371,9 +371,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fileCounter: 0
+  sessionName: session1
   screenshotKey: 111
   captureWidth: 2
   captureHeight: 2
+<<<<<<< Updated upstream
+=======
+  autoCapture: 1
+  triggerOrbitCaptureKey: 127
+  divisions: 15
+  lightFieldName: lightField1
+>>>>>>> Stashed changes
 --- !u!1 &664698437
 GameObject:
   m_ObjectHideFlags: 0
@@ -1106,6 +1114,10 @@ MonoBehaviour:
   viewCamera: {fileID: 71556517}
   captureCamera: {fileID: 464764467}
   focalPoint: {fileID: 664698441}
+<<<<<<< Updated upstream
+=======
+  distance: 10
+>>>>>>> Stashed changes
   projectorPlane: {fileID: 1262285514}
 --- !u!114 &2077698563
 MonoBehaviour:
