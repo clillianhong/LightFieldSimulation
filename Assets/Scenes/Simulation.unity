@@ -249,7 +249,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 71556515}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9bff4d4b5d44484caee2da89444adfd, type: 3}
+  m_Script: {fileID: 11500000, guid: d113ce88fdb5f9b4e91573dcdd430c45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   focus: {fileID: 664698441}
@@ -351,7 +351,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 464764465}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9bff4d4b5d44484caee2da89444adfd, type: 3}
+  m_Script: {fileID: 11500000, guid: d113ce88fdb5f9b4e91573dcdd430c45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   focus: {fileID: 664698441}
@@ -375,6 +375,7 @@ MonoBehaviour:
   screenshotKey: 111
   captureWidth: 2
   captureHeight: 2
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
   autoCapture: 1
@@ -382,6 +383,11 @@ MonoBehaviour:
   divisions: 15
   lightFieldName: lightField1
 >>>>>>> Stashed changes
+=======
+  autoCapture: 1
+  triggerOrbitCaptureKey: 127
+  divisions: 15
+>>>>>>> dd975f3977b3e227284f22dddca4af8afd7acd42
 --- !u!1 &664698437
 GameObject:
   m_ObjectHideFlags: 0
@@ -1075,8 +1081,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2077698561}
-  - component: {fileID: 2077698562}
   - component: {fileID: 2077698563}
+  - component: {fileID: 2077698562}
   m_Layer: 0
   m_Name: OrbitViewManager
   m_TagString: Untagged
@@ -1107,7 +1113,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2077698560}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcf15fdc3f0056641b482e739c9c7815, type: 3}
+  m_Script: {fileID: 11500000, guid: 09626a0e75e0c6c4b92087416f197c80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   changeCameraKey: 9
