@@ -139,7 +139,7 @@ namespace Simulation
         /*  Saves a capture session within Assets/SimulatorCaptureSessions/sessionName  */
         public void SaveSession(string sessionName)
         {
-            LightField fieldData = new LightField();
+            LightFieldJsonData fieldData = new LightFieldJsonData();
             fieldData.sessionName = sessionName;
             fieldData.focalPoint = viewManager.focalPoint.position;
             fieldData.sphereRadius = viewManager.distance;
@@ -153,12 +153,6 @@ namespace Simulation
             AssetDatabase.CreateFolder(outputPath, sessionName);
             AssetDatabase.CreateFolder(fieldPath, "CaptureImages");
             AssetDatabase.Refresh();
-
-
-            // var fieldFolder = Directory.CreateDirectory(Path.GetDirectoryName(fieldPath));
-            // var imageFolder = Directory.CreateDirectory(Path.GetDirectoryName(imagePath));
-            // fieldFolder.Refresh();
-            // imageFolder.Refresh();
 
             CaptureJSONData[] captures = new CaptureJSONData[collectionManager.captureViews.Count];
 
@@ -181,7 +175,6 @@ namespace Simulation
             currentlyCapturing = false;
 
         }
-
 
 
     }
