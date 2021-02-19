@@ -23,6 +23,10 @@ namespace Simulation.Viewer
         public string lightFieldName;
         private GameObject _focalPoint;
 
+        public GameObject projectorPlanePrefab;
+        private GameObject _projectorPlane;
+
+
         public GameObject focalPoint
         {
             get { return _focalPoint; }
@@ -35,6 +39,8 @@ namespace Simulation.Viewer
         #region Private Variables
         private MLInput.Controller _controller;
         private LFManagerState _currentState;
+
+        private Camera _camera;
         #endregion
 
         // Start is called before the first frame update
@@ -48,9 +54,13 @@ namespace Simulation.Viewer
             MLInput.OnControllerButtonUp += OnButtonUp;
             _controller = MLInput.GetController(MLInput.Hand.Left);
             _currentState = LFManagerState.SETUP_FOCAL;
+            Debug.Log("starting");
 
             string jsonPath = Loader.PathFromSessionName(lightFieldName) + "/capture.json";
             _lightField = new LightField(JsonUtility.FromJson<LightFieldJsonData>(Simulation.Utils.Loader.LoadJsonText(jsonPath)));
+            _camera = Camera.main;
+            InvokeRepeating("UpdateProjectorPlane", 2.0f, 0.3f);
+
         }
 
         void OnButtonDown(byte controllerId, MLInput.Controller.Button button)
@@ -58,7 +68,9 @@ namespace Simulation.Viewer
             if (button == MLInput.Controller.Button.Bumper && _currentState == LFManagerState.SETUP_FOCAL)
             {
                 Debug.Log("entering");
-                placeFocalPoint(_controller.Position, _controller.Orientation);
+                Vector3 focalPos = _controller.Position;
+                focalPoint = Instantiate(focalPointPrefab, focalPos, _controller.Orientation);
+                _projectorPlane = Instantiate(projectorPlanePrefab, focalPos, _controller.Orientation);
                 transitionState(LFManagerState.SETUP_RADIUS);
             }
         }
@@ -82,6 +94,19 @@ namespace Simulation.Viewer
 
         }
 
+        void LateUpdate()
+        {
+
+        }
+
+        void UpdateProjectorPlane()
+        {
+            if (_currentState != LFManagerState.SETUP_FOCAL)
+            {
+                _projectorPlane.transform.up = -_camera.transform.forward;
+            }
+        }
+
         void OnDestroy()
         {
             MLInput.OnControllerButtonDown -= OnButtonDown;
@@ -89,10 +114,7 @@ namespace Simulation.Viewer
             MLInput.Stop();
         }
 
-        void placeFocalPoint(Vector3 position, Quaternion rotation)
-        {
-            focalPoint = Instantiate(focalPointPrefab, position, rotation);
-        }
+
 
         void transitionState(LFManagerState newState)
         {

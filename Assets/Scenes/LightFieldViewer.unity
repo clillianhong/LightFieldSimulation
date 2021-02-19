@@ -1277,9 +1277,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af25863f663e4564ba2963e877daacf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  focalPointPrefab: {fileID: 3783319057881335818, guid: 4cd1a87d9d36e474eb3cf67195d4296e,
+  focalPointPrefab: {fileID: 4016720850342458225, guid: 4cd1a87d9d36e474eb3cf67195d4296e,
     type: 3}
   lightFieldName: session1
+  projectorPlanePrefab: {fileID: 5599862325618540427, guid: 43aa536bf5e178a4f83781ac4a0ad540,
+    type: 3}
 --- !u!4 &1817536482
 Transform:
   m_ObjectHideFlags: 0
